@@ -1,0 +1,15 @@
+<h1>Random Results</h1>
+
+<div>Minimum</div>
+<div> <%= params.fetch("user_min").to_f.round(1) %> </div>
+<div>Maximum<div>
+<div> <%= params.fetch("user_max").to_f.round(1) %> </div>
+
+<% min = params.fetch("user_min").to_f.round(1) %>
+<% max = params.fetch("user_max").to_f.round(1) %>
+
+<div>Random Number</div>
+<div> <%= rand(min ... max) %> </div>
+
+
+<div><p><a href="/square/new">Pick another random number</a></p><div>

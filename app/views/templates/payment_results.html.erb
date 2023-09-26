@@ -1,0 +1,20 @@
+<%# come back to payments later%>
+<h1>Payment Results</h1>
+
+<div>APR</div>
+<div> <%= params.fetch("user_apr").to_f.round(4) %>% </div>
+<div>Number of years<div>
+<div> <%= params.fetch("user_years") %> </div>
+<div>Principal</div>
+<div> $<%= params.fetch("user_principal").to_f %> </div>
+<div>Payment</div>
+
+<% r = (params.fetch("user_apr").to_f / 12) / 100.0 %>
+<% n = params.fetch("user_years").to_i * 12 %>
+<% pv = params.fetch("user_principal").to_f %>
+<% payment = (r * pv) / (1 - (1 + r)**-n) %>
+
+
+<div> $<%= payment.round(2) %> </div>
+
+<div><p><a href="/square/new">Calculate another payment</a></p><div>
