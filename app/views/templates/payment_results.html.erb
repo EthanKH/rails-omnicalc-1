@@ -6,12 +6,12 @@
 <div>Number of years<div>
 <div> <%= params.fetch("user_years") %> </div>
 <div>Principal</div>
-<div> $<%= params.fetch("user_principal").to_f %> </div>
+<div> $<%= params.fetch("user_principal").to_fs(:currency) %> </div>
 <div>Payment</div>
 
 <% r = (params.fetch("user_apr").to_f / 12) / 100.0 %>
 <% n = params.fetch("user_years").to_i * 12 %>
-<% pv = params.fetch("user_principal").to_f %>
+<% pv = params.fetch("user_principal").to_fs(:currency) %>
 <% payment = (r * pv) / (1 - (1 + r)**-n) %>
 
 
